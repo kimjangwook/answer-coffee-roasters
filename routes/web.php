@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PublicPages\\IndexController@index')->name('PublicPages.Index');
+
+Route::prefix('/admin')->group(function () {
+    Auth::routes();
+    Route::middleware('auth')->group(function () {
+        Route::get('/', 'AdminPages\\IndexController@index')->name('AdminPages.Index');
+        Route::get('/main-image', 'AdminPages\\MainImageController@index')->name('AdminPages.MainImage');
+    });
 });
+
+
