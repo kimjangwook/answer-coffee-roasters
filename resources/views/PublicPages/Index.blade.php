@@ -16,7 +16,10 @@
                     <div class="carousel-inner">
                         @foreach ($images as $k => $v)
                             <div class="carousel-item {{ $k === 0 ? 'active' : '' }}">
-                                <img src="{{ $v }}" class="d-block w-100">
+                                <img src="{{ $v }}"
+                                     class="d-block w-100"
+                                     alt="main image {{ $k }}"
+                                />
                             </div>
                         @endforeach
                     </div>
